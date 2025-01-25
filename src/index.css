@@ -46,7 +46,6 @@
   left: 25vw;
   text-align: center;
   padding: 5vh;
-  /* line-height: 100px; */
   background-image: url("../wiz_chatbox.png");
   background-clip: border-box;
   background-size: cover;
@@ -69,6 +68,24 @@
   background-size: cover;
   /* background-color: #e3f9fc; */
   /* border-radius: 30px; */
+
+  font-size: 24px;
+}
+
+#scroll_text {
+  position: fixed;
+  top: 15vh;
+  left: 27vw;
+  z-index: 9;
+  
+  height: 50vh;
+  width: 50vw;
+  text-align: center;
+  padding-top: 5vh;
+  background-image: url("../wizard_scroll.png");
+  background-size: 70vh;
+  background-repeat: no-repeat;
+  /* border: 3px solid black; */
 
   font-size: 24px;
 }
