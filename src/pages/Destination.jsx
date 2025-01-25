@@ -1,9 +1,14 @@
 import MyCalendar from '../components/calendar';
+import Wizard from '../components/wizard';
 
 
 const Destination = () => {
-  return (<div><MyCalendar/></div>
-    
+  return (
+  <div>
+    <MyCalendar/>
+    <Wizard/>
+  </div>
+   
   );
 };
 
