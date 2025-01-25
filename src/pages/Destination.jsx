@@ -1,5 +1,9 @@
+import MyCalendar from '../components/calendar';
+
 export const Destination = () => {
-  return <div>Destination</div>;
+  return (<div><MyCalendar/></div>
+    
+  );
 };
 
 export default Destination;
