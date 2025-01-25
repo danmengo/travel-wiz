@@ -6,7 +6,6 @@ const TravelPlans = () => {
       <div id="homepage">
         <div id="wizard_chatbox"> Welcome traveler! I'm the travel wizard! </div>
         <img id="wizard" src={logo} alt="loading..." />
-        <UserInputArea />
       </div>
     );
   };

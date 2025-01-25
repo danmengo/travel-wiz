@@ -1,11 +1,9 @@
 /* universal selector */
 * {
-  /* box-sizing: border-box; */
   margin: 0;
   padding: 0;
-  font-family: Copperplate, fantasy, Garamond, serif;
+  font-family: Copperplate, fantasy, serif;
   font-size: 14;
-  /* background-color: #646cff; */
 }
 
 #homepage {
@@ -23,11 +21,11 @@
 
 #wizard {
   position: fixed;
+  top: 15vh;
+  left: 3vw;
   z-index: 10;
 
   max-width: 30vw;
-  top: 15vh;
-  left: 3vw;
 }
 
 #wizard_chatbox {
