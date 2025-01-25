@@ -33,4 +33,4 @@ const UserInputArea = () => {
     )
 }
 
-export default UserInputArea
+export default UserInputArea;
