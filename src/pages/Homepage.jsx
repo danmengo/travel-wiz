@@ -1,8 +1,9 @@
 import UserInputArea from "../components/userInput";
+import '../index.css';
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="parent-container">
       Homepage
       <UserInputArea />
     </div>
