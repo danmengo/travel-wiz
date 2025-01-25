@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 const UserInputArea = () => {
     const [name, setName] = useState('');
@@ -32,4 +32,4 @@ const UserInputArea = () => {
     )
 }
 
-export default UserInputArea
+export default UserInputArea;
