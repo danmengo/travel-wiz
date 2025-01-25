@@ -52,6 +52,7 @@ h1 {
   /* gap: 1rem; */
 /* } */
 
+<<<<<<< HEAD
 #homepage {
   background-image: url("../draft1background.png");
   background-size: 100%;
@@ -83,6 +84,9 @@ h1 {
 }
 
 .btn {
+=======
+/* .btn {
+>>>>>>> 2aef047742e74e8eac9ca3f43c9eb2fb73a6470d
   border-radius: 4px;
   border: 1px solid transparent;
   padding: 0.2em 1.2em;
@@ -92,7 +96,21 @@ h1 {
   background-color: #a3d3ed;
   cursor: pointer;
   transition: border-color 0.25s;
+} */
+
+
+/* parent-container styles */
+/* Parent container should use flexbox */
+.parent-container {
+  display: flex;
+  justify-content: flex-end; /* Align content to the right horizontally */
+  align-items: center; /* Vertically center the content */
+  min-height: 100vh; /* Ensure the container takes up full viewport height */
+  padding: 0 70px 200px; /* Optional padding */
 }
+
+
+
 
 button {
   border-radius: 8px;
