@@ -1,11 +1,9 @@
 /* universal selector */
 * {
-  /* box-sizing: border-box; */
   margin: 0;
   padding: 0;
-  font-family: Copperplate, fantasy, Garamond, serif;
+  font-family: Copperplate, fantasy, serif;
   font-size: 14;
-  /* background-color: #646cff; */
 }
 
 #homepage {
@@ -23,11 +21,36 @@
 
 #wizard {
   position: fixed;
+  top: 15vh;
+  left: 3vw;
   z-index: 10;
 
   max-width: 30vw;
-  top: 15vh;
-  left: 3vw;
+}
+
+#travel_plan_wizard {
+  position: fixed;
+  bottom: 0vh;
+  left: 0vw;
+  z-index: 10;
+
+  max-width: 30vw;
+}
+
+#wizard_chatbox_bottom {
+  position: fixed;
+  z-index: 9;
+  
+  height: 10vh;
+  bottom: 10vh;
+  left: 25vw;
+  text-align: center;
+  padding: 5vh;
+  background-image: url("../wiz_chatbox.png");
+  background-clip: border-box;
+  background-size: cover;
+
+  font-size: 24px;
 }
 
 #wizard_chatbox {
@@ -39,11 +62,30 @@
   top: 15vh;
   left: 20vw;
   text-align: center;
-  line-height: 100px;
+  padding: 5vh;
+  /* line-height: 100px; */
   background-image: url("../wiz_chatbox.png");
   background-size: cover;
   /* background-color: #e3f9fc; */
   /* border-radius: 30px; */
+
+  font-size: 24px;
+}
+
+#scroll_text {
+  position: fixed;
+  top: 15vh;
+  left: 27vw;
+  z-index: 9;
+  
+  height: 50vh;
+  width: 50vw;
+  text-align: center;
+  padding-top: 5vh;
+  background-image: url("../wizard_scroll.png");
+  background-size: 70vh;
+  background-repeat: no-repeat;
+  /* border: 3px solid black; */
 
   font-size: 24px;
 }
