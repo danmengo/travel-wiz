@@ -28,6 +28,32 @@
   max-width: 30vw;
 }
 
+#travel_plan_wizard {
+  position: fixed;
+  bottom: 0vh;
+  left: 0vw;
+  z-index: 10;
+
+  max-width: 30vw;
+}
+
+#wizard_chatbox_bottom {
+  position: fixed;
+  z-index: 9;
+  
+  height: 10vh;
+  bottom: 10vh;
+  left: 25vw;
+  text-align: center;
+  padding: 5vh;
+  /* line-height: 100px; */
+  background-image: url("../wiz_chatbox.png");
+  background-clip: border-box;
+  background-size: cover;
+
+  font-size: 24px;
+}
+
 #wizard_chatbox {
   position: fixed;
   z-index: 9;
@@ -37,7 +63,8 @@
   top: 15vh;
   left: 20vw;
   text-align: center;
-  line-height: 100px;
+  padding: 5vh;
+  /* line-height: 100px; */
   background-image: url("../wiz_chatbox.png");
   background-size: cover;
   /* background-color: #e3f9fc; */
