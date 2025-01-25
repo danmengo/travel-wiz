@@ -1,5 +1,16 @@
-:root {
+/* universal selector */
+* {
+  /* box-sizing: border-box; */
+  margin: 0;
+  padding: 0;
+  font-family: Copperplate, fantasy, Garamond, serif;
+  font-size: 14;
+  /* background-color: #646cff; */
+}
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+:root {
   line-height: 1.5;
   font-weight: 400;
 
@@ -35,6 +46,72 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  /* gap: 1rem; */
+/* } */
+
+<<<<<<< HEAD
+#homepage {
+  background-image: url("../draft1background.png");
+  background-size: 100%;
+  background-color: lightblue;
+  height: 700px;
+}
+
+#wizard {
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  top: 70px;
+  left: 40px;
+  /* border: 3px solid #73AD21; */
+}
+
+#wizard_chatbox {
+  font-size: 24px;
+  width: 60%;
+  height: 150px;
+  position: fixed;
+  top: 15%;
+  left: 25%;
+  text-align: center;
+  line-height: 100px;
+  /* background-image: url("../wiz_chatbox.png"); */
+  background-color: #e3f9fc;
+  border-radius: 30px;
+}
+
+.btn {
+=======
+/* .btn {
+>>>>>>> 2aef047742e74e8eac9ca3f43c9eb2fb73a6470d
+  border-radius: 4px;
+  border: 1px solid transparent;
+  padding: 0.2em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #a3d3ed;
+  cursor: pointer;
+  transition: border-color 0.25s;
+} */
+
+
+/* parent-container styles */
+/* Parent container should use flexbox */
+.parent-container {
+  display: flex;
+  justify-content: flex-end; /* Align content to the right horizontally */
+  align-items: center; /* Vertically center the content */
+  min-height: 100vh; /* Ensure the container takes up full viewport height */
+  padding: 0 70px 200px; /* Optional padding */
+}
+
+
+
 
 button {
   border-radius: 8px;
