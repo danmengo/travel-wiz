@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import "./userInput.css";
 
 const UserInputArea = () => {
     const [name, setName] = useState('');
@@ -10,7 +11,7 @@ const UserInputArea = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Form Submitted!');
+        alert('Logged In!');
     };
     const isFormValid = name && password;
     return (
@@ -32,4 +33,4 @@ const UserInputArea = () => {
     )
 }
 
-export default UserInputArea
+export default UserInputArea;
