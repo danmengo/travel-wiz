@@ -1,6 +1,7 @@
 import MyCalendar from '../components/calendar';
 
-export const Destination = () => {
+
+const Destination = () => {
   return (<div><MyCalendar/></div>
     
   );
