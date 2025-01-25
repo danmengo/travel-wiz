@@ -39,4 +39,12 @@
   .react-calendar__navigation button:hover {
     background-color: #3498db;
   }
+
+    .calendar-container {
+    position: absolute;
+    top: 50px; /* 50px from the top of the page */
+    left: 50%;  /* Center horizontally */
+    transform: translateX(50%); /* Correct horizontal centering */
+  }
+  
   
