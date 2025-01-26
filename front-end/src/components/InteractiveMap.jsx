@@ -1,95 +1,97 @@
-import { useState } from 'react'
-import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
+import { useState } from "react";
+import {
+  GoogleMap,
+  useJsApiLoader,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 import "./InteractiveMap.css";
-
 const mapContainerStyle = {
-    width: "100%",
-    height: "100%",
+  width: "100%",
+  height: "100%",
 };
-  
+
 const center = {
-    lat: 33.6846, 
-    lng: -117.8265,  
+  lat: 33.6846,
+  lng: -117.8265,
 };
 
 const InteractiveMap = () => {
-    const [selected, setSelected] = useState(null);
-    const [city, setCity] = useState(null);
-    const [markers, setMarkers] = useState([]);
-    const apikey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const [selected, setSelected] = useState(null);
+  const [city, setCity] = useState(null);
+  const [markers, setMarkers] = useState([]);
+  const apikey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-    const { isLoaded } = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: apikey
-        // libraries: ['geometry', 'drawing'],
-    });
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: apikey,
+    // libraries: ['geometry', 'drawing'],
+  });
 
+  const getCityInfo = async (latitude, longitude) => {
+    const apiKey = apikey; // Replace with your API key
+    const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
 
-    const getCityInfo = async (latitude, longitude) => {
-        const apiKey = apikey; // Replace with your API key
-        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
 
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
+      // Find the city from the geocoding response
+      const city = data.results.find((result) =>
+        result.types.includes("locality")
+      );
 
-            // Find the city from the geocoding response
-            const city = data.results.find(result =>
-            result.types.includes("locality")
-            );
+      if (city) {
+        setCity(city.formatted_address); // Set the city info
+      } else {
+        setCity("City not found");
+      }
+    } catch (error) {
+      console.error("Error fetching city information:", error);
+    }
+  };
 
-            if (city) {
-                setCity(city.formatted_address); // Set the city info
-            } else {
-                setCity("City not found");
-            }
-        } catch (error) {
-            console.error("Error fetching city information:", error);
-        }
-    };
+  const handleMapClick = (e) => {
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
 
-    const handleMapClick = (e) => {
-        const lat = e.latLng.lat();
-        const lng = e.latLng.lng();
-    
-        setMarkers((prevMarkers) => [...prevMarkers, { lat, lng }]);
-        getCityInfo(lat, lng); // Fetch city info based on clicked location
-        setSelected({ lat, lng }); // Set the selected marker position
-    };
+    setMarkers((prevMarkers) => [...prevMarkers, { lat, lng }]);
+    getCityInfo(lat, lng); // Fetch city info based on clicked location
+    setSelected({ lat, lng }); // Set the selected marker position
+  };
 
-    return (
-        <div className = "loadscript">
-
-        {isLoaded && 
+  return (
+    <div className="loadscript">
+      {isLoaded && (
         <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        center={center}
-        zoom={12}
-        onClick={handleMapClick}
+          mapContainerStyle={mapContainerStyle}
+          center={center}
+          zoom={12}
+          onClick={handleMapClick}
         >
-        {markers.map((marker, index) => (
+          {markers.map((marker, index) => (
             <Marker
-            key={index}
-            position={marker}
-            onClick={() => setSelected(marker)}
+              key={index}
+              position={marker}
+              onClick={() => setSelected(marker)}
             />
-        ))}
+          ))}
 
-        {selected ? (
+          {selected ? (
             <InfoWindow
-            position={selected}
-            onCloseClick={() => setSelected(null)}
+              position={selected}
+              onCloseClick={() => setSelected(null)}
             >
-            <div>
+              <div>
                 <h2>Nearest City</h2>
                 <p>{city || "Loading city information..."}</p>
-            </div>
+              </div>
             </InfoWindow>
-        ) : null}
+          ) : null}
         </GoogleMap>
-        }
-        </div>
-    );
-}
+      )}
+    </div>
+  );
+};
 
 export default InteractiveMap;
