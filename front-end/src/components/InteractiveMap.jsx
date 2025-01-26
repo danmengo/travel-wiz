@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from "@react-google-maps/api";
 import "./InteractiveMap.css";
 
 const mapContainerStyle = {
@@ -17,6 +17,12 @@ const InteractiveMap = () => {
     const [city, setCity] = useState(null);
     const [markers, setMarkers] = useState([]);
     const apikey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: apikey,
+        libraries: ['geometry', 'drawing'],
+    });
 
 
     const getCityInfo = async (latitude, longitude) => {
@@ -54,35 +60,34 @@ const InteractiveMap = () => {
     return (
         <div className = "loadscript">
 
-        
-        <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-            <GoogleMap
-            mapContainerStyle={mapContainerStyle}
-            center={center}
-            zoom={12}
-            onClick={handleMapClick}
-            >
-            {markers.map((marker, index) => (
-                <Marker
-                key={index}
-                position={marker}
-                onClick={() => setSelected(marker)}
-                />
-            ))}
+        {isLoaded && 
+        <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        center={center}
+        zoom={12}
+        onClick={handleMapClick}
+        >
+        {markers.map((marker, index) => (
+            <Marker
+            key={index}
+            position={marker}
+            onClick={() => setSelected(marker)}
+            />
+        ))}
 
-            {selected ? (
-                <InfoWindow
-                position={selected}
-                onCloseClick={() => setSelected(null)}
-                >
-                <div>
-                    <h2>Nearest City</h2>
-                    <p>{city || "Loading city information..."}</p>
-                </div>
-                </InfoWindow>
-            ) : null}
-            </GoogleMap>
-        </LoadScript>
+        {selected ? (
+            <InfoWindow
+            position={selected}
+            onCloseClick={() => setSelected(null)}
+            >
+            <div>
+                <h2>Nearest City</h2>
+                <p>{city || "Loading city information..."}</p>
+            </div>
+            </InfoWindow>
+        ) : null}
+        </GoogleMap>
+        }
         </div>
     );
 }

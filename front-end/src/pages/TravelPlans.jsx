@@ -1,6 +1,5 @@
 import "./TravelPlans.css";
 import logo from "../assets/wizard.gif";
-import "../components/InteractiveMap"
 import InteractiveMap from "../components/InteractiveMap";
 
 const TravelPlans = () => {
