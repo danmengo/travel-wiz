@@ -1,8 +1,6 @@
 import "./TravelPlans.css";
 import logo from "../assets/wizard.gif";
 import InteractiveMap from "../components/InteractiveMap";
-import wiz_scoll from "../assets/wizard_scroll.png";
-import UserInputArea from "../components/userInput";
 
 const TravelPlans = () => {
     return (
@@ -11,7 +9,6 @@ const TravelPlans = () => {
         <div id="scroll_text">
             weather information
             <InteractiveMap />
-            {/* <UserInputArea /> */}
         </div>
         
         <div id="wizard_chatbox_bottom"> 
