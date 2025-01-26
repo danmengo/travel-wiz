@@ -1,7 +1,6 @@
-// import UserInputArea from "../components/userInput";
+import UserInputArea from "../components/userInput";
 import "../index.css";
 import logo from "../assets/wizard.gif";
-import InteractiveMap from "../components/InteractiveMap";
 
 const Homepage = () => {
   return (
@@ -12,7 +11,6 @@ const Homepage = () => {
       <UserInputArea />
       
       <div id="weather_display"> display weather here </div>
-      <InteractiveMap />
     </div>
   );
 };

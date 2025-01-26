@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/ap
 
 const mapContainerStyle = {
     width: "50%",
-    height: "400px",
+    height: "500px",
   };
   
 const center = {
@@ -51,7 +51,7 @@ const InteractiveMap = () => {
     };
 
     return (
-        <LoadScript googleMapsApiKey={apikey}>
+        <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
             <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={center}
