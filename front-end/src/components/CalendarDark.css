@@ -1,9 +1,26 @@
 /* Dark mode calendar styles */
+:root {
+  --arc-palette-background: #e3f1ec;
+  --arc-palette-foregroundPrimary: #79cbae;
+  --arc-palette-foregroundTertiary: #ECEDFEFF;
+  --arc-palette-cutoutColor: #ECEDFEFF;
+  --arc-palette-hover: #e3f1ec;
+  --arc-palette-title: #0A0D4BFF;
+  --arc-background-gradient-color0: #c9f6e6;
+  --arc-palette-maxContrastColor: #79cbae;
+  --arc-palette-subtitle: #c9f6e6;
+  --arc-background-gradient-color1: rgb(247, 237, 211);
+  --arc-palette-focus: #c9f6e6;
+  --arc-palette-backgroundExtra: #FDFDFFFF;
+  --arc-palette-foregroundSecondary: #c9f6e6;
+  --arc-palette-minContrastColor: #e3f1ec;
+}
+
 .react-calendar {
     background-color: #183031;  /* Dark background */
     color: #ecf6e7;             /* Light text color */
     border-radius: 8px;
-    border-width: 0;
+    border: 5px solid #183031;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     font-size: 16px;
   }
@@ -16,7 +33,7 @@
   }
   
   .react-calendar__tile--hover:enabled { /* Hover effect on tiles */
-    background-color: #cdd7ac;
+    background-color: #e9f2c9;
   }
   
   .react-calendar__tile--active {
@@ -31,7 +48,7 @@
   
   .react-calendar__navigation button {
     background-color: #183031;  /* Navigation button background */
-    color: a3d3ed;
+    color: #a3d3ed;
     border: none;
     padding: 10px;
     font-size: 16px;
@@ -39,9 +56,13 @@
   }
   
   .react-calendar__navigation button:hover {
-    background-color: #183031;  /* Hover effect for navigation buttons */
+    background-color: #9fc5ac;  /* Hover effect for navigation buttons */
   }
   
+  .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+    background: #9fc5ac;
+  }
+
   /* Calendar container positioning */
   .calendar-container {
     position: fixed;
@@ -78,4 +99,8 @@
   button:focus {
     outline: none;  /* Cleaner look without the focus outline */
   }
-  
+
+  /* Change the text on weekend buttons. */
+  .react-calendar__month-view__days__day--weekend {
+    color: #a9d4ff;
+  }
