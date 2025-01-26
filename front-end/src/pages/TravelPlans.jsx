@@ -1,6 +1,8 @@
 import "./TravelPlans.css";
 import logo from "../assets/wizard.gif";
 import InteractiveMap from "../components/InteractiveMap";
+import NextButton from "../components/NextButton";
+import BackButton from "../components/BackButton";
 
 const TravelPlans = () => {
   const userInput = localStorage.getItem("userInput");
@@ -19,6 +21,8 @@ const TravelPlans = () => {
       </div>
 
       <img id="travel_plan_wizard" src={logo} alt="loading..." />
+      <BackButton destination="/"/>
+      <NextButton destination="/destination"/>
     </div>
   );
 };
