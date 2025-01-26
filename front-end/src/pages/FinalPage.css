@@ -1,0 +1,70 @@
+
+#finalpage {
+  background-image: url("../assets/wiz_background.PNG");
+  background-color: lightblue;
+
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+
+  z-index: 1;
+}
+
+#wizard {
+  position: fixed;
+  top: 15vh;
+  left: 3vw;
+  z-index: 10;
+
+  max-width: 30vw;
+}
+
+#wizard_chatbox {
+  position: fixed;
+  top: 12vh;
+  left: 25vw;
+  z-index: 9;
+
+  background-image: url("../wiz_chatbox.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 45vw;
+
+  padding-top: 3vh;
+  text-align: center;
+  font-size: 22px;
+}
+
+#info_display {
+  position: fixed;
+  bottom: 10vh;
+  left: 10vw;
+  z-index: 7;
+  height: 30vh;
+  width: 80vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  text-align: center;
+  background-color: lightblue;
+}
+
+  
+#scroll_results {
+  position: fixed;
+  top: 30vh;
+  left: 30vw;
+  z-index: 9;
+
+  background-image: url("../wizard_scroll.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 55vh;
+  width: 60vw;
+
+  padding-top: 5vh;
+  text-align: center;
+  font-size: 22px;
+}
