@@ -15,7 +15,7 @@ const TravelPlans = () => {
 
       <div id="wizard_chatbox_bottom">
         <p>
-          Oh look here what I found {userInput}!
+          Oh {userInput} looks quite fun!
         </p>
       </div>
 
