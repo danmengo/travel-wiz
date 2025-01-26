@@ -1,6 +1,8 @@
 import MyCalendar from '../components/calendar';
 import logo from "../assets/wizard.gif";
 import './Destination.css';
+import NextButton from '../components/NextButton';
+import BackButton from '../components/BackButton';
 
 const Destination = () => {
   return ( 
@@ -11,7 +13,8 @@ const Destination = () => {
       <img id="wizard" src={logo} alt="loading..." />
         
       <MyCalendar/>
-      
+      <BackButton destination="/travelplans" />
+      <NextButton destination="/FinalPage"/>
     </div>
   );
 };

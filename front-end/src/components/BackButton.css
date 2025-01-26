@@ -1,0 +1,13 @@
+
+
+
+.backbutton {
+    position: absolute;
+    bottom: 20px;  /* Distance from the bottom */
+    right: 80px;   /* Distance from the right */
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
