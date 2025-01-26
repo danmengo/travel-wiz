@@ -10,7 +10,7 @@ const genAI = new GoogleGenerativeAI(apikey);
  * @param {string} destination - The destination to query.
  * @returns {Promise<Object>} - The coordinates or an error object.
  */
-export const fetchGeminiCoordinates = async (destination) => {
+const fetchGeminiCoordinates = async (destination) => {
   try {
     // Get the generative model
     const model = await genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
@@ -24,6 +24,7 @@ export const fetchGeminiCoordinates = async (destination) => {
     // Assuming `result.response` contains the generated response
     if (result && result.response) {
       const response = await result.response.text();
+      console.log("Result", response.text());
 
       // Attempt to parse latitude and longitude from the response
       const regex = /latitude: (\d+(\.\d+)?), longitude: (\d+(\.\d+)?)/i;
@@ -47,3 +48,5 @@ export const fetchGeminiCoordinates = async (destination) => {
     return null;
   }
 };
+
+export default fetchGeminiCoordinates;

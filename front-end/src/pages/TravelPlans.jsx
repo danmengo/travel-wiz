@@ -26,4 +26,5 @@ const TravelPlans = () => {
     </div>
   );
 };
+
 export default TravelPlans;
