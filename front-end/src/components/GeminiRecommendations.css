@@ -1,0 +1,59 @@
+/* GeminiRecommendations.css */
+
+.gemini-recommendations {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+  
+h2 {
+text-align: center;
+font-size: 1.5rem;
+margin-bottom: 15px;
+}
+
+.city-input {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+.submit-btn {
+width: 100%;
+padding: 10px;
+font-size: 1rem;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.submit-btn:disabled {
+background-color: #ddd;
+}
+
+.error {
+color: red;
+font-size: 1rem;
+text-align: center;
+margin-top: 10px;
+}
+
+.recommendations-box {
+width: 100%;
+padding: 10px;
+margin-top: 20px;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 5px;
+min-height: 150px;
+background-color: #f1f1f1;
+resize: vertical;
+overflow: auto;
+}
