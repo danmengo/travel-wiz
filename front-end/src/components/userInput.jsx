@@ -13,12 +13,13 @@ const UserInputArea = () => {
         e.preventDefault();
         alert('Logged In!');
     };
-    const isFormValid = name && password;
+    // const isFormValid = name && password;
+    const isFormValid = name;
     return (
         <form className='add-form' onSubmit={handleSubmit}>
             <div className='form-control'>
-                <label>Username</label>
-                <input type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter Username'/>
+                <label>Where would you like to go?</label>
+                <input type='text' name='name' value={name} onChange={handleInputChange} placeholder='Enter Here'/>
             </div>
             {/* <div className='form-control'>
                 <label>Password</label>
