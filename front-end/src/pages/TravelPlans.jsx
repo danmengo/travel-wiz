@@ -21,8 +21,8 @@ const TravelPlans = () => {
       </div>
 
       <img id="travel_plan_wizard" src={logo} alt="loading..." />
-      <BackButton destination="/"/>
-      <NextButton destination="/destination"/>
+      <BackButton destination="/" />
+      <NextButton destination="/destination" />
     </div>
   );
 };
