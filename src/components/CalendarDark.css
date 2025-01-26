@@ -44,9 +44,9 @@
   /* Calendar container positioning */
   .calendar-container {
     position: absolute;
-    top: 90px;               /* 50px from the top of the page */
+    top: 320px;               /* 50px from the top of the page */
     left: 70%;               /* Center horizontally */
-    transform: translateX(-30%); /* Correct horizontal centering */
+    transform: translateX(-20%);
   }
   
   /* Dark mode button styles for clearing selection */
@@ -54,7 +54,7 @@
     background-color: #444444;  /* Dark button background */
     color: #ecf0f1;             /* Light text color */
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;

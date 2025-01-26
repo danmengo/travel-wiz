@@ -1,0 +1,19 @@
+/* Set the PNG as the background for the whole page */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../assets/draft1background.png'); /* Path to your PNG image */
+    background-size: cover;    /* Ensure the background covers the entire page */
+    background-position: center;  /* Center the background image */
+    background-repeat: no-repeat;  /* Prevent the image from repeating */
+    height: 100vh;  /* Ensure the page takes the full height of the viewport */
+  }
+
+.chatbox {
+  display: flex;
+  height: 10px;
+  width: 10px;
+}
+
+
+  
