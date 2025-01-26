@@ -1,0 +1,10 @@
+.center-top-image {
+    position: sticky;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;  /* Adjust the image size */
+    height: auto;  /* Keep the aspect ratio */
+    z-index: 10;
+  }
+  

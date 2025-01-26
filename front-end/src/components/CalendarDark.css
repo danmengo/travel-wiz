@@ -1,7 +1,8 @@
+/* Dark mode calendar styles */
 .react-calendar {
     font-family: 'Arial', sans-serif;
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: #2c3e50;  /* Dark background */
+    color: #ecf0f1;             /* Light text color */
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
@@ -14,21 +15,21 @@
   }
   
   .react-calendar__tile--hover:enabled {
-    background-color: #34495e;
+    background-color: #34495e;  /* Hover effect on tiles */
   }
   
   .react-calendar__tile--active {
-    background-color: #2980b9;
+    background-color: #2980b9;  /* Active tile background */
     color: white;
   }
   
   .react-calendar__tile--now {
-    background-color: #f39c12;
+    background-color: #f39c12;  /* Today's date background */
     color: white;
   }
   
   .react-calendar__navigation button {
-    background-color: #2980b9;
+    background-color: #2980b9;  /* Navigation button background */
     color: white;
     border: none;
     padding: 10px;
@@ -37,14 +38,42 @@
   }
   
   .react-calendar__navigation button:hover {
-    background-color: #3498db;
-  }
-
-    .calendar-container {
-    position: absolute;
-    top: 50px; /* 50px from the top of the page */
-    left: 50%;  /* Center horizontally */
-    transform: translateX(50%); /* Correct horizontal centering */
+    background-color: #3498db;  /* Hover effect for navigation buttons */
   }
   
+  /* Calendar container positioning */
+  .calendar-container {
+    position: absolute;
+    top: 320px;               /* 50px from the top of the page */
+    left: 70%;               /* Center horizontally */
+    transform: translateX(-20%);
+  }
+  
+  /* Dark mode button styles for clearing selection */
+  button {
+    background-color: #444444;  /* Dark button background */
+    color: #ecf0f1;             /* Light text color */
+    padding: 10px 15px;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #555555;  /* Slightly lighter gray on hover */
+  }
+  
+  /* Button active state */
+  button:active {
+    background-color: #666666;  /* Darker gray when clicked */
+  }
+  
+  /* Remove button focus outline */
+  button:focus {
+    outline: none;  /* Cleaner look without the focus outline */
+  }
   
