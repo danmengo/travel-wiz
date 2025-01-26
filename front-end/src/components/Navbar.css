@@ -1,16 +1,18 @@
 .active {
-  background-color: #1d4ed8;
+  background-color: #30775e;
+  color: #ecf6e7;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0f172a;
-  color: white;
+  background-color: #4da083;
+  color: ecf6e7;
   position: sticky;
   top: 0;
   z-index: 1000;
+  font-size: 22px;
 }
 
 nav .title {

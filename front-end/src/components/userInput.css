@@ -1,15 +1,16 @@
 /* Style for the form container */
 .add-form {
-  width: 400px; /* Fixed width */
-  padding: 20px;
+  width: 35vw; /* Fixed width */
+  padding: 30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background-color: #cdd7ac; /* White background */
   border-radius: 8px; /* Rounded corners */
   box-shadow: #404525; /* Shadow */
   
   
-  /* flex-direction: column; */
   position: fixed;
-  top: 40vh;
+  top: 35vh;
   left: 32vw;
 }
   
@@ -37,7 +38,7 @@ input[type="password"] {
   border: 1px solid #ccc; /* Light gray border */
   border-radius: 4px;
   box-sizing: border-box; /* Prevent padding from affecting width */
-  font-size: 16;
+  font-size: 16px;
 }
 
 /* Style for the submit button */
@@ -47,6 +48,7 @@ input[type="submit"] {
 
   background-color: #42827f; /* Blue button */
   color: #ecf6e7;
+  font-size: 16;
   box-shadow: 0 5px 0 #186561;
 
   border-radius: 4px;
