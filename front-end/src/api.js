@@ -2,6 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const apikey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
+
 // Initialize the Google Generative AI object
 const genAI = new GoogleGenerativeAI(apikey);
 
@@ -10,32 +11,39 @@ const genAI = new GoogleGenerativeAI(apikey);
  * @param {string} destination - The destination to query.
  * @returns {Promise<Object>} - The coordinates or an error object.
  */
-export const fetchGeminiCoordinates = async (destination) => {
+const fetchGeminiCoordinates = async (destination) => {
   try {
     // Get the generative model
-    const model = await genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
+    const model = await genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
     // Define the prompt for coordinates
     const prompt = `What are the approximate latitude and longitude coordinates for ${destination}?`;
-
     // Generate content using the model
     const result = await model.generateContent(prompt);
 
-    // Assuming `result.response` contains the generated response
     if (result && result.response) {
-      const response = await result.response.text();
+      const responseText = result.response.text().trim();
+      console.log("Generated Response Text:", responseText); // Debugging the response
 
-      // Attempt to parse latitude and longitude from the response
-      const regex = /latitude: (\d+(\.\d+)?), longitude: (\d+(\.\d+)?)/i;
-      const match = regex.exec(response);
+      // Refined regex to capture coordinates in the format of "45° N latitude, 93° W longitude"
+      const regex = /(-?\d+(\.\d+)?)[^\d]*([NS])\s*latitude[^\d]*,\s*(-?\d+(\.\d+)?)[^\d]*([EW])\s*longitude/i;
+      const match = regex.exec(responseText);
 
       if (match) {
+        let latitude = parseFloat(match[1]);
+        let longitude = parseFloat(match[4]);
+
+        // Handle directions (N/S, E/W) by adjusting the values
+        if (match[3] === "S") latitude = -latitude; // South means negative latitude
+        if (match[6] === "W") longitude = -longitude; // West means negative longitude
+
+        console.log(`Extracted Coordinates: Latitude: ${latitude}, Longitude: ${longitude}`); // Debugging extracted coordinates
         return {
-          latitude: parseFloat(match[1]),
-          longitude: parseFloat(match[3]),
+          latitude,
+          longitude,
         };
       } else {
-        console.warn("Unable to extract coordinates from response:", response);
+        console.warn("Unable to extract coordinates from response:", responseText);
         return null;
       }
     } else {
@@ -47,3 +55,7 @@ export const fetchGeminiCoordinates = async (destination) => {
     return null;
   }
 };
+
+
+
+export default fetchGeminiCoordinates;
