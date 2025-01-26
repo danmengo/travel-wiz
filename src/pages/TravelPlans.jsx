@@ -1,11 +1,14 @@
 import "../index.css";
 import logo from "../assets/wizard.gif";
+import "../components/InteractiveMap"
+import InteractiveMap from "../components/InteractiveMap";
 
 const TravelPlans = () => {
     return (
       <div id="homepage">
         <div id="scroll_text">
             weather information
+            <InteractiveMap />
         </div>
         <div id="wizard_chatbox_bottom"> 
             <p>

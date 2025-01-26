@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/ap
 
 const mapContainerStyle = {
     width: "50%",
-    height: "400px",
+    height: "500px",
   };
   
 const center = {
@@ -15,7 +15,7 @@ const InteractiveMap = () => {
     const [selected, setSelected] = useState(null);
     const [city, setCity] = useState(null);
     const [markers, setMarkers] = useState([]);
-    const apikey = "AIzaSyAc3dtLuu3A4MD0PaDhBAgK1HMaLuezoSA";
+    const apikey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 
     const getCityInfo = async (latitude, longitude) => {
@@ -51,7 +51,7 @@ const InteractiveMap = () => {
     };
 
     return (
-        <LoadScript googleMapsApiKey={apikey}>
+        <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
             <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={center}
