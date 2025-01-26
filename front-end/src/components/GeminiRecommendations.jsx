@@ -1,72 +1,88 @@
-import { useState, useEffect } from 'react';
-import './GeminiRecommendations.css';
+import { useState, useEffect } from "react";
+import fetchGeminiCoordinates from "../api.js"; // Import the function
+import "./GeminiRecommendations.css";
+
+const gemin_key = import.meta.env.VITE_GEMINI_API_KEY;
 
 const GeminiRecommendations = () => {
-  // State to hold the recommendations, loading state, and error
-  const [recommendations, setRecommendations] = useState('');
+  const [recommendations, setRecommendations] = useState("");
+  const [coordinates, setCoordinates] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // Retrieve 'userInput' from localStorage
-  const userInput = localStorage.getItem('userInput');
+  const userInput = localStorage.getItem("userInput");
 
   useEffect(() => {
     // If there is no userInput, do not make a request
     if (!userInput) return;
 
-    // Function to fetch recommendations based on userInput (city name)
     const fetchRecommendations = async () => {
       setLoading(true);
       setError(null);
-      setRecommendations(''); // Reset recommendations before fetching
+      setRecommendations(""); // Reset recommendations before fetching
+      setCoordinates(null); // Reset coordinates before fetching
 
       try {
-        const prompt = `What are some recommendations for ${userInput}?`;
+        // Step 1: Fetch coordinates for the city
+        const coords = await fetchGeminiCoordinates(userInput);
+        if (!coords) {
+          throw new Error("Failed to fetch coordinates for the city.");
+        }
 
-        // Replace with the actual Gemini API endpoint
-        const response = await fetch('https://api.gemini.com/recommendations', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'apikey', // Replace with your actual API key
-          },
-          body: JSON.stringify({ prompt }),
-        });
+        setCoordinates(coords); // Update state with fetched coordinates
+
+
+        // Step 2: Fetch recommendations using Gemini
+        const model = await genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+
+        const prompt = `What are the best places to visit in ${userInput} located at latitude ${coords.latitude} and longitude ${coords.longitude}?`;
+        const result = await model.generateContent(prompt);
+
+        
+        // const response = await fetch("https://api.gemini.com/recommendations", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     Authorization: , // Use your API key
+        //   },
+        //   body: JSON.stringify({ prompt }),
+        // });
 
         const data = await response.json();
 
-        // Check if response is successful and contains recommendations
-        if (response.ok && data.recommendations) {
+        if (result && result.response.text()) {
           setRecommendations(data.recommendations);
         } else {
-          setRecommendations('No recommendations found for this city.');
+          setRecommendations("No recommendations found for this city.");
         }
       } catch (err) {
-        setError('There was an error fetching the recommendations.');
+        setError("There was an error fetching recommendations.");
         console.error(err);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchRecommendations(); // Call the function when userInput is available
-  }, [userInput]); // Depend on userInput for re-fetching
+    fetchRecommendations(); // Trigger the fetching process
+  }, [userInput]); // Depend on `userInput` to re-fetch if it changes
 
   return (
     <div className="gemini-recommendations">
       <h2>Gemini Recommendations</h2>
 
-      {/* Show a loading indicator if still loading */}
+
+      {/* Show loading indicator while fetching */}
       {loading && <div className="loading">Loading...</div>}
 
-      {/* Show error message if there was an error fetching recommendations */}
+      {/* Show error message if fetching fails */}
       {error && <div className="error">{error}</div>}
 
-      {/* Display Gemini's recommendations */}
+      {/* Display recommendations */}
       <textarea
         readOnly
         rows={10}
-        value={recommendations}  // The value will reflect the recommendations state
+        value={recommendations} // Reflect recommendations in the textarea
         placeholder="Recommendations will be displayed here..."
         className="recommendations-box"
       />

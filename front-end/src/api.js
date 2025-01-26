@@ -1,10 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const apikey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const gemini_key = import.meta.env.VITE_GEMINI_API_KEY;
 
 
 // Initialize the Google Generative AI object
-const genAI = new GoogleGenerativeAI(apikey);
+const genAI = new GoogleGenerativeAI(gemini_key);
+
 
 /**
  * Fetch coordinates for a given destination using Gemini.
@@ -13,7 +14,12 @@ const genAI = new GoogleGenerativeAI(apikey);
  */
 const fetchGeminiCoordinates = async (destination) => {
   try {
+
+    console.log(import.meta.env);
+
+
     // Get the generative model
+    console.log("apikey", gemini_key);
 
     const model = await genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
     // Define the prompt for coordinates
@@ -26,7 +32,9 @@ const fetchGeminiCoordinates = async (destination) => {
       console.log("Generated Response Text:", responseText); // Debugging the response
 
       // Refined regex to capture coordinates in the format of "45° N latitude, 93° W longitude"
-      const regex = /(-?\d+(\.\d+)?)[^\d]*([NS])\s*latitude[^\d]*,\s*(-?\d+(\.\d+)?)[^\d]*([EW])\s*longitude/i;
+      // const regex = /(-?\d+(\.\d+)?)[^\d]*([NS])\s*latitude[^\d]*,\s*(-?\d+(\.\d+)?)[^\d]*([EW])\s*longitude/i;
+      const regex = /\*?\*?(-?\d+(\.\d+)?)°?\s*([NS])\*?\*?.*?\*?\*?(-?\d+(\.\d+)?)°?\s*([EW])\*?\*?/i;
+
       const match = regex.exec(responseText);
 
       if (match) {
