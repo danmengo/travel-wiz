@@ -37,3 +37,12 @@
   text-align: center;
   font-size: 22px;
 }
+
+#weather_display {
+  position: fixed;
+  top: 10vh;
+  left: 35vw;
+  z-index: 9;
+  width: 45vw;
+  background: none;
+}
