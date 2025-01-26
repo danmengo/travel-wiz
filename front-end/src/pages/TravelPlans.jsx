@@ -15,8 +15,7 @@ const TravelPlans = () => {
 
       <div id="wizard_chatbox_bottom">
         <p>
-          with a little bit of magic, <br></br>
-          here's what i can suggest for your trip to {userInput}!
+          Oh look here what I found {userInput}!
         </p>
       </div>
 
