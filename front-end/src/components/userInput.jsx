@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'; 
 import "./userInput.css";
 
 const UserInputArea = () => {
@@ -9,9 +10,10 @@ const UserInputArea = () => {
         if (name === 'name') setName(value);
         // if (name === 'password') setPassword(value);
     };
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Logged In!');
+        navigate('/travelplans', { state: { name } });
     };
     // const isFormValid = name && password;
     const isFormValid = name;
