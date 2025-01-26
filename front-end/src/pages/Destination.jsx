@@ -1,21 +1,16 @@
 import MyCalendar from '../components/calendar';
-import Wizard from '../components/wizard';
-import WizChat from '../components/wizChat';
+import logo from "../assets/wizard.gif";
 import './Destination.css';
 
 const Destination = () => {
-  return (
+  return ( 
+    <div id="destination_page">
     
-    <div>
-    
-      <div className="chatbox">
-        <MyCalendar />
-        <Wizard />
-        <div className="chatbox-bubble">
-          <WizChat />
-        </div>
+      <div id="chatbox"> How long shall your journey be?</div>
+
+      <img id="wizard" src={logo} alt="loading..." />
         
-      </div>
+      <MyCalendar/>
       
     </div>
   );

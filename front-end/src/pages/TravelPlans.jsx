@@ -2,7 +2,6 @@ import "./TravelPlans.css";
 import logo from "../assets/wizard.gif";
 import "../components/InteractiveMap"
 import InteractiveMap from "../components/InteractiveMap";
-import wiz_scoll from "../assets/wizard_scroll.png";
 
 const TravelPlans = () => {
     return (
@@ -12,7 +11,6 @@ const TravelPlans = () => {
             weather information
             <InteractiveMap />
         </div>
-        
         
         <div id="wizard_chatbox_bottom"> 
             <p>
