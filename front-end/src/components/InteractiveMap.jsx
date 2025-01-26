@@ -20,8 +20,8 @@ const InteractiveMap = () => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: apikey,
-        libraries: ['geometry', 'drawing'],
+        googleMapsApiKey: apikey
+        // libraries: ['geometry', 'drawing'],
     });
 
 
