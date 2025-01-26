@@ -5,7 +5,7 @@ import InteractiveMap from "../components/InteractiveMap";
 
 const TravelPlans = () => {
     return (
-      <div id="homepage">
+      <div>
         <div id="scroll_text">
             weather information
             <InteractiveMap />
