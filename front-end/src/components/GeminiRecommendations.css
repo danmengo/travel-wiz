@@ -1,13 +1,14 @@
 /* GeminiRecommendations.css */
 
 .gemini-recommendations {
-    max-width: 600px;
-    margin: 0 auto;
+    width: 60%;
+    height: 80%;
+    margin: auto;
     padding: 20px;
-    background-color: #f8f8f8;
+    background-color: #cdd7ac;
     border-radius: 8px;
   }
-  
+
 h2 {
 text-align: center;
 font-size: 1.5rem;
@@ -46,14 +47,15 @@ margin-top: 10px;
 }
 
 .recommendations-box {
-width: 100%;
+width: 90%;
 padding: 10px;
 margin-top: 20px;
 font-size: 1rem;
-border: 1px solid #ccc;
+border: none;
 border-radius: 5px;
 min-height: 150px;
-background-color: #f1f1f1;
+background-color: #e4edc7;
+color: #041b25;
 resize: vertical;
 overflow: auto;
 }
