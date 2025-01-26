@@ -1,0 +1,39 @@
+
+#homepage {
+  background-image: url("../assets/wiz_background.PNG");
+  background-color: lightblue;
+
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+
+  z-index: 1;
+}
+
+#wizard {
+  position: fixed;
+  top: 15vh;
+  left: 3vw;
+  z-index: 10;
+
+  max-width: 30vw;
+}
+
+#wizard_chatbox {
+  position: fixed;
+  top: 12vh;
+  left: 25vw;
+  z-index: 9;
+
+  background-image: url("../wiz_chatbox.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 45vw;
+
+  padding-top: 3vh;
+  text-align: center;
+  font-size: 22px;
+}

@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { GoogleMap, LoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import "./InteractiveMap.css";
 
 const mapContainerStyle = {
-    width: "50%",
-    height: "500px",
-  };
+    width: "100%",
+    height: "100%",
+};
   
 const center = {
     lat: 33.6846, 
@@ -51,6 +52,9 @@ const InteractiveMap = () => {
     };
 
     return (
+        <div className = "loadscript">
+
+        
         <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
             <GoogleMap
             mapContainerStyle={mapContainerStyle}
@@ -79,6 +83,7 @@ const InteractiveMap = () => {
             ) : null}
             </GoogleMap>
         </LoadScript>
+        </div>
     );
 }
 

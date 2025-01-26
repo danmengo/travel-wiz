@@ -1,32 +1,32 @@
 /* Style for the form container */
 .add-form {
-    width: 400px; /* Fixed width */
-    padding: 20px;
-    background-color: #cdd7ac; /* White background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: #404525; /* Shadow */
-    
-    
-    /* flex-direction: column; */
-    position: fixed;
-    top: 40vh;
-    left: 32vw;
-  }
+  width: 400px; /* Fixed width */
+  padding: 20px;
+  background-color: #cdd7ac; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: #404525; /* Shadow */
+  
+  
+  /* flex-direction: column; */
+  position: fixed;
+  top: 40vh;
+  left: 32vw;
+}
   
 /* Style for each form control */
 .form-control {
-    width: 100%;
-    margin-bottom: 15px;
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
 }
 
 .form-control label {
-    margin-bottom: 5px; /* Add space between label and input field */
-    font-size: 22px;
-  }
+  margin-bottom: 5px; /* Add space between label and input field */
+  font-size: 22px;
+}
 
 /* Style for the input fields */
 input[type="text"],
